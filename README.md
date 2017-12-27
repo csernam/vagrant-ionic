@@ -38,16 +38,16 @@ This box has been tested only in Windows 10 and VirtualBox. It's recommended to 
 ### node_modules issues
 Having Windows as a host system, some errors could be raised during npm install in your Ionic project directory. These errors are related to the fact that you can't translate symlinks to a Windows shared folder. After many attempts, I managed to install it using yarn (you can try with `npm i --no-bin-links` also):
 ```javascript
-`npm install -g yarn`
-`rm -rf node_modules`
-`yarn install --no-bin-links`
+npm install -g yarn
+rm -rf node_modules
+yarn install --no-bin-links
 ```
 
 ### Live-reload
 Although this box is configured to share your vagrant folder with the guest SO, live-reloading is not working due to some issue related to filesystem changes notifications in VirtualBox. To get this live-reload I decided to install [fsnotify](https://github.com/adrienkohlbecker/vagrant-fsnotify) plugin.
 Just open a new console and run:
 ```javascript
-`vagrant fsnotify`
+vagrant fsnotify
 ```
 
 ### Ionic serve
