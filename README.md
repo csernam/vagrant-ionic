@@ -35,20 +35,12 @@ These base images are known as "boxes" in Vagrant. This is a prepackaged develop
 ### Host machine
 This box has been tested only in Windows 10 and VirtualBox. It's recommended to run vagrant with Administration privileges.
 
-### node_modules issues
-Having Windows as a host system, some errors could be raised during npm install in your Ionic project directory. These errors are related to the fact that you can't translate symlinks to a Windows shared folder. After many attempts, I managed to install it using yarn (you can try with `npm i --no-bin-links` also):
-```javascript
-npm rebuild node-sass
-npm install -g yarn
-rm -rf node_modules
-yarn install --no-bin-links
-```
-
 ### Clone your repo
-On your host, clone your repository inside the vagrant folder. This is your working directory, on your host, open the project with your favourite editor. Don't be worried about the changes you make, all the files are automatically synced with the guest. 
+On your **host**, clone your repository inside the vagrant folder. This is your working directory, on your host, open the project with your favourite editor. Don't be worried about the changes you make, all the files are automatically synced with the guest. 
 
 ### Ionic serve
-The server will run from the guest machine, so access to it via `vagrant ssh` and inside the Ionic project folder run `ionic serve`.
+The server will run from the **guest** machine, so access to it via `vagrant ssh` and inside the Ionic project folder run ´npm install´. Check the section *node_modules issues* if you ran into problems with this command.
+When you have a successful `npm install` it's time to run `ionic serve`.
 After `ionic serve`, the browser is not automatic launched on the Vagrant box. Access your box at http://192.168.2.2 opening your host browser.
 
 ### Live-reload
@@ -58,4 +50,12 @@ Just open a new console and run:
 vagrant fsnotify
 ```
 
+### node_modules issues
+Having Windows as a host system, some errors could be raised during npm install in your Ionic project directory. These errors are related to the fact that you can't translate symlinks to a Windows shared folder. After many attempts, I managed to install it using yarn (you can try with `npm i --no-bin-links` also):
+```javascript
+npm rebuild node-sass
+npm install -g yarn
+rm -rf node_modules
+yarn install --no-bin-links
+```
 
