@@ -38,11 +38,18 @@ This box has been tested only in Windows 10 and VirtualBox. It's recommended to 
 ### node_modules issues
 Having Windows as a host system, some errors could be raised during npm install in your Ionic project directory. These errors are related to the fact that you can't translate symlinks to a Windows shared folder. After many attempts, I managed to install it using yarn (you can try with `npm i --no-bin-links` also):
 ```javascript
+npm rebuild node-sass
 npm install -g yarn
 rm -rf node_modules
 yarn install --no-bin-links
-npm rebuild node-sass
 ```
+
+### Clone your repo
+On your host, clone your repository inside the vagrant folder. This is your working directory, on your host, open the project with your favourite editor. Don't be worried about the changes you make, all the files are automatically synced with the guest. 
+
+### Ionic serve
+The server will run from the guest machine, so access to it via `vagrant ssh` and inside the Ionic project folder run `ionic serve`.
+After `ionic serve`, the browser is not automatic launched on the Vagrant box. Access your box at http://192.168.2.2 opening your host browser.
 
 ### Live-reload
 Although this box is configured to share your vagrant folder with the guest SO, live-reloading is not working due to some issue related to filesystem changes notifications in VirtualBox. To get this live-reload I decided to install [fsnotify](https://github.com/adrienkohlbecker/vagrant-fsnotify) plugin.
@@ -51,5 +58,4 @@ Just open a new console and run:
 vagrant fsnotify
 ```
 
-### Ionic serve
-After `ionic serve`, the browser is not automatic launched on the Vagrant box. Access your box at http://192.168.2.2 opening your host browser.
+
