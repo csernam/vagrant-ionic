@@ -39,7 +39,7 @@ This box has been tested only in Windows 10 and VirtualBox. It's recommended to 
 On your **host**, clone your repository inside the vagrant folder. This is your working directory, on your host, open the project with your favourite editor. Don't be worried about the changes you make, all the files are automatically synced with the guest. 
 
 ### Ionic serve
-The server will run from the **guest** machine, so access to it via `vagrant ssh` and inside the Ionic project folder run ´npm install´. Check the section *node_modules issues* if you ran into problems with this command.
+The server will run from the **guest** machine, so access to it via `vagrant ssh` and inside the Ionic project folder run `npm install`. Check the section *node_modules issues* if you ran into problems with this command.
 When you have a successful `npm install` it's time to run `ionic serve`.
 After `ionic serve`, the browser is not automatic launched on the Vagrant box. Access your box at http://192.168.2.2 opening your host browser.
 
