@@ -41,6 +41,7 @@ Having Windows as a host system, some errors could be raised during npm install 
 npm install -g yarn
 rm -rf node_modules
 yarn install --no-bin-links
+npm rebuild node-sass
 ```
 
 ### Live-reload
